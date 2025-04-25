@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_class/screens/widgets/cover.dart';
-import 'package:smart_class/screens/widgets/measure_box.dart';
-import 'package:smart_class/screens/widgets/smoke_element.dart';
-import 'package:smart_class/screens/widgets/switcher_groub.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/cover.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/measure_box.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/smoke_element.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/switcher_groub.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

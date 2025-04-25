@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:journijots/core/api/api_consumer.dart';
-import 'package:journijots/core/api/api_interceptors.dart';
-import 'package:journijots/core/api/end_ponits.dart';
-import 'package:journijots/core/errors/exceptions.dart';
+import 'package:smart_class/api/api_consumer.dart';
+import 'package:smart_class/api/api_interceptors.dart';
+import 'package:smart_class/api/end_ponits.dart';
+import 'package:smart_class/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;

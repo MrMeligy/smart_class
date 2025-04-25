@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_class/screens/widgets/row_measures.dart';
-import 'package:smart_class/screens/widgets/switcher.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/row_measures.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/switcher.dart';
 
 class SwitchersGroup extends StatelessWidget {
   const SwitchersGroup({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_class/screens/widgets/app_bar_temp.dart';
-import 'package:smart_class/screens/widgets/app_name.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/app_bar_temp.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/app_name.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

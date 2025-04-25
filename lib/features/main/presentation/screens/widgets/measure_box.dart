@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_class/screens/widgets/measures_container.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/measures_container.dart';
 
 class MeasureBox extends StatelessWidget {
   const MeasureBox({

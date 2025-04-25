@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_class/screens/widgets/measure_element.dart';
-import 'package:smart_class/screens/widgets/row_measures.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/measure_element.dart';
+import 'package:smart_class/features/main/presentation/screens/widgets/row_measures.dart';
 
 class MeasuresContainer extends StatelessWidget {
   const MeasuresContainer({
