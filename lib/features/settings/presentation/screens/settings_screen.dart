@@ -54,7 +54,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             TextField(
               controller: controller,
-              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: 'IP Address',
                 hintText: 'EX: 192.168.1.60',

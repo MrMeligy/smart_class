@@ -9,12 +9,18 @@ import 'package:smart_class/features/main/presentation/screens/main_screen.dart'
 import 'package:smart_class/core/service_locator/service_locator.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final cacheHelper = CacheHelper();
-  await cacheHelper.init();
-  setupServiceLocator();
-  await ScreenUtil.ensureScreenSize();
-  runApp(const MyApp());
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    final cacheHelper = CacheHelper();
+    await cacheHelper.init();
+    setupServiceLocator();
+    await ScreenUtil.ensureScreenSize();
+    runApp(const MyApp());
+  } catch (e) {
+    // يمكنك إظهار واجهة خطأ بسيطة هنا بدلاً من شاشة بيضاء
+    runApp(
+        MaterialApp(home: Scaffold(body: Center(child: Text('حدث خطأ: $e')))));
+  }
 }
 
 class MyApp extends StatelessWidget {

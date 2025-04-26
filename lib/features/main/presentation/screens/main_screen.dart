@@ -51,78 +51,59 @@ class MainScreen extends StatelessWidget {
               ),
               BlocBuilder<SystemStatuesCubit, SystemStatuesState>(
                 builder: (context, state) {
-                  return SfRadialGauge(
-                    axes: <RadialAxis>[
-                      RadialAxis(
-                        startAngle: 180,
-                        endAngle: 0,
-                        minimum: 0,
-                        maximum: 2500,
-                        showLabels: false,
-                        showTicks: false,
-                        axisLineStyle: AxisLineStyle(
-                          thickness: 0.2,
-                          thicknessUnit: GaugeSizeUnit.factor,
-                          gradient: SweepGradient(
-                            colors: [
-                              Color(0xffFFD93D),
-                              Colors.red,
-                            ],
-                            stops: [0.0, 1.0],
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.w),
+                    child: SfRadialGauge(
+                      axes: <RadialAxis>[
+                        RadialAxis(
+                          startAngle: 180,
+                          endAngle: 0,
+                          minimum: 0,
+                          maximum: 2500,
+                          showLabels: false,
+                          showTicks: false,
+                          axisLineStyle: AxisLineStyle(
+                            thickness: 0.2,
+                            thicknessUnit: GaugeSizeUnit.factor,
+                            gradient: SweepGradient(
+                              colors: [
+                                Color(0xffFFD93D),
+                                Colors.red,
+                              ],
+                              stops: [0.0, 1.0],
+                            ),
                           ),
+                          pointers: <GaugePointer>[
+                            MarkerPointer(
+                              value: (state is SystemStatuesSuccess)
+                                  ? double.parse(
+                                      state.statues.smokeValue.toString())
+                                  : 0,
+                              markerType: MarkerType.circle,
+                              color: Colors.black87,
+                              markerHeight: 20,
+                              markerWidth: 20,
+                            ),
+                          ],
+                          annotations: <GaugeAnnotation>[
+                            GaugeAnnotation(
+                              widget: Text(
+                                (state is SystemStatuesSuccess)
+                                    ? "${state.statues.smokeValue}"
+                                    : '0',
+                                style: TextStyle(
+                                  fontSize: 30.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              angle: 90,
+                              positionFactor: 0.1,
+                            ),
+                          ],
                         ),
-                        pointers: <GaugePointer>[
-                          MarkerPointer(
-                            value: (state is SystemStatuesSuccess)
-                                ? double.parse(
-                                    state.statues.smokeValue.toString())
-                                : 0,
-                            markerType: MarkerType.circle,
-                            color: Colors.black87,
-                            markerHeight: 20,
-                            markerWidth: 20,
-                          ),
-                        ],
-                        annotations: <GaugeAnnotation>[
-                          GaugeAnnotation(
-                            widget: Text(
-                              (state is SystemStatuesSuccess)
-                                  ? "${state.statues.smokeValue}"
-                                  : '0',
-                              style: TextStyle(
-                                fontSize: 30.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            angle: 90,
-                            positionFactor: 0.1,
-                          ),
-                          GaugeAnnotation(
-                            widget: Text(
-                              'Min',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.white,
-                              ),
-                            ),
-                            angle: 180,
-                            positionFactor: 1.1,
-                          ),
-                          GaugeAnnotation(
-                            widget: Text(
-                              'Max',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.white,
-                              ),
-                            ),
-                            angle: 0,
-                            positionFactor: 1.1,
-                          ),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   );
                 },
               ),

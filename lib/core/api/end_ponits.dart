@@ -4,7 +4,8 @@ import 'package:smart_class/core/service_locator/service_locator.dart';
 class EndPoint {
   static String baseUrl = "";
   static String updatedUrl() {
-    if (getIt<CacheHelper>().getDataString(key: "ip")!.isEmpty) {
+    if (getIt<CacheHelper>().getDataString(key: "ip") == null ||
+        getIt<CacheHelper>().getDataString(key: "ip")!.isEmpty) {
       return "192";
     }
     return getIt<CacheHelper>().getDataString(key: "ip").toString();
