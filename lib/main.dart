@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_class/core/cache/cache_helper.dart';
 import 'package:smart_class/features/main/presentation/manager/cubit/system_control_cubit.dart';
 import 'package:smart_class/features/main/presentation/manager/repo/main_repo_impl.dart';
 import 'package:smart_class/features/main/presentation/manager/statues_cubit/system_statues_cubit.dart';
 import 'package:smart_class/features/main/presentation/screens/main_screen.dart';
-import 'package:smart_class/service_locator/service_locator.dart';
+import 'package:smart_class/core/service_locator/service_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final cacheHelper = CacheHelper();
+  await cacheHelper.init();
+  setupServiceLocator();
   await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
@@ -22,8 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              SystemStatuesCubit(getIt<MainRepoImpl>())..getStatues(),
+          create: (context) => SystemStatuesCubit(getIt<MainRepoImpl>()),
         ),
         BlocProvider(
           create: (context) => SystemControlCubit(getIt<MainRepoImpl>()),

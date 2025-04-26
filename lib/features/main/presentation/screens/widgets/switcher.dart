@@ -7,14 +7,15 @@ class Switcher extends StatelessWidget {
     super.key,
     required this.title,
     this.iconData,
+    this.onToggle,
   });
   final String title;
   final IconData? iconData;
-
+  final void Function(int?)? onToggle;
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Row(
           spacing: 5.w,
@@ -35,7 +36,9 @@ class Switcher extends StatelessWidget {
         SizedBox(
           width: 15.w,
         ),
-        CustomSwitch(),
+        CustomSwitch(
+          onToggle: onToggle,
+        ),
       ],
     );
   }

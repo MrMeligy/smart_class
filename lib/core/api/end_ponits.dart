@@ -1,6 +1,15 @@
+import 'package:smart_class/core/cache/cache_helper.dart';
+import 'package:smart_class/core/service_locator/service_locator.dart';
+
 class EndPoint {
-  static String baseUrl =
-      "http://127.0.0.1:8000/api/"; //http://10.0.2.2:5206/api/ // http://journijotsv1.runasp.net/api/
+  static String baseUrl = "";
+  static String updatedUrl() {
+    if (getIt<CacheHelper>().getDataString(key: "ip")!.isEmpty) {
+      return "192";
+    }
+    return getIt<CacheHelper>().getDataString(key: "ip").toString();
+  }
+
   static String getStatues = "status";
   static String controlSystem({required String mode}) {
     return "system?state=$mode";

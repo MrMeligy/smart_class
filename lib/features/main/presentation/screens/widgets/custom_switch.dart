@@ -5,23 +5,25 @@ class CustomSwitch extends StatelessWidget {
   const CustomSwitch({
     super.key,
     this.isVertical,
+    this.onToggle,
   });
   final bool? isVertical;
+  final void Function(int?)? onToggle;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 35,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
       child: ToggleSwitch(
         isVertical: isVertical ?? false,
         curve: Curves.linear,
         animationDuration: 150,
         animate: true,
-        minWidth: 40.0,
+        minWidth: 35.0,
         cornerRadius: 50.0,
         activeBgColors: [
-          [Color.fromARGB(255, 78, 77, 77)],
-          [Color.fromARGB(255, 23, 212, 149)]
+          [Color(0xff424242)],
+          [Color(0xff00C853)]
         ],
         activeFgColor: Colors.white,
         inactiveBgColor: Color(0xffD4D4D4),
@@ -29,7 +31,11 @@ class CustomSwitch extends StatelessWidget {
         initialLabelIndex: 0,
         totalSwitches: 2,
         radiusStyle: true,
-        onToggle: (index) {},
+        onToggle: (index) {
+          if (onToggle != null) {
+            onToggle!(index); // Call the callback with the index
+          }
+        },
       ),
     );
   }

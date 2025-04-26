@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
-import 'package:smart_class/api/api_consumer.dart';
-import 'package:smart_class/api/api_interceptors.dart';
-import 'package:smart_class/api/end_ponits.dart';
+import 'package:smart_class/core/api/api_consumer.dart';
+import 'package:smart_class/core/api/api_interceptors.dart';
+import 'package:smart_class/core/api/end_ponits.dart';
 import 'package:smart_class/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = EndPoint.baseUrl;
+    dio.options.baseUrl = "http://${EndPoint.updatedUrl().toString()}/api/";
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(LogInterceptor(
       request: true,

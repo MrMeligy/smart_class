@@ -20,9 +20,11 @@ void handleDioExceptions(DioException e) {
     case DioExceptionType.cancel:
       throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      {
+        throw ServerException(errModel: ErrorModel(errorMessage: "Wrong IP"));
+      }
     case DioExceptionType.unknown:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerException(errModel: ErrorModel(errorMessage: "Wrong IP"));
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
         case 400: // Bad request

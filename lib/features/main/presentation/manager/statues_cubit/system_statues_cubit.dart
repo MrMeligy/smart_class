@@ -18,4 +18,10 @@ class SystemStatuesCubit extends Cubit<SystemStatuesState> {
       ),
     );
   }
+
+  offStatus() async {
+    emit(
+      SystemStatuesOff(),
+    );
+  }
 }

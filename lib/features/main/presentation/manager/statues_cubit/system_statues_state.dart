@@ -11,6 +11,8 @@ final class SystemStatuesInitial extends SystemStatuesState {}
 
 final class SystemStatuesLoading extends SystemStatuesState {}
 
+final class SystemStatuesOff extends SystemStatuesState {}
+
 final class SystemStatuesSuccess extends SystemStatuesState {
   final SystemStatues statues;
 

@@ -1,13 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:smart_class/api/api_consumer.dart';
-import 'package:smart_class/api/end_ponits.dart';
+import 'package:smart_class/core/api/api_consumer.dart';
+import 'package:smart_class/core/api/end_ponits.dart';
 import 'package:smart_class/errors/exceptions.dart';
 import 'package:smart_class/features/main/data/system_statues.dart';
 import 'package:smart_class/features/main/presentation/manager/repo/main_repo.dart';
 
 class MainRepoImpl extends MainRepo {
   final ApiConsumer api;
-
   MainRepoImpl({required this.api});
   @override
   Future<String> fanControl({required String mode}) async {

@@ -10,7 +10,7 @@ class MeasureBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 110.h,
+      top: 160.h,
       right: 30.w,
       left: 30.w,
       child: Stack(
