@@ -1,13 +1,13 @@
-import 'package:dartz/dartz.dart';
 import 'package:smart_class/core/api/api_consumer.dart';
 import 'package:smart_class/core/api/end_ponits.dart';
+import 'package:smart_class/core/service/websocket_service.dart';
 import 'package:smart_class/errors/exceptions.dart';
-import 'package:smart_class/features/main/data/system_statues.dart';
 import 'package:smart_class/features/main/presentation/manager/repo/main_repo.dart';
 
 class MainRepoImpl extends MainRepo {
   final ApiConsumer api;
-  MainRepoImpl({required this.api});
+  final WebSocketService webSocketService;
+  MainRepoImpl({required this.webSocketService, required this.api});
   @override
   Future<String> fanControl({required String mode}) async {
     try {
@@ -28,16 +28,16 @@ class MainRepoImpl extends MainRepo {
     }
   }
 
-  @override
-  Future<Either<String, SystemStatues>> getStatues() async {
-    try {
-      var response = await api.get(EndPoint.getStatues);
-      SystemStatues statues = SystemStatues.fromJson(response);
-      return (right(statues));
-    } on ServerException catch (e) {
-      return (left(e.errModel.errorMessage));
-    }
-  }
+  // @override
+  // Future<Either<String, SystemStatues>> getStatues() async {
+  //   try {
+  //     var response = await api.get(EndPoint.getStatues);
+  //     SystemStatues statues = SystemStatues.fromJson(response);
+  //     return (right(statues));
+  //   } on ServerException catch (e) {
+  //     return (left(e.errModel.errorMessage));
+  //   }
+  // }
 
   @override
   Future<String> lightControl({required String mode}) async {
