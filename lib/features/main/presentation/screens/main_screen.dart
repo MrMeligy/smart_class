@@ -41,6 +41,9 @@ class MainScreen extends StatelessWidget {
                   )
                 ],
               ),
+              SizedBox(
+                height: 32.h,
+              ),
               Text(
                 "Smoke",
                 style: TextStyle(

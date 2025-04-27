@@ -6,7 +6,7 @@ class EndPoint {
   static String updatedUrl() {
     if (getIt<CacheHelper>().getDataString(key: "ip") == null ||
         getIt<CacheHelper>().getDataString(key: "ip")!.isEmpty) {
-      return "192";
+      return "192.168.1.1";
     }
     return getIt<CacheHelper>().getDataString(key: "ip").toString();
   }
